@@ -19,7 +19,56 @@ import GrassIcon from '@mui/icons-material/Grass';
 import { CardActions, Chip, Rating } from '@mui/material';
 
 
-function App() {
+function App() 
+{
+  const hotels = [
+    {id: 1, name: "Arabian Palace"},
+    {id: 2, name: "MaxFun"},
+    {id: 3, name: "Mamma's"},
+    {id: 4, name: "Kubaba"},
+  ];
+
+  function shareClick(hotelID)
+  {
+    console.log(`Share clicked id: ${hotelID}`);
+  }
+
+  function bookClick(hotelID)
+  {
+    console.log(`Book clicked id: ${hotelID}`);
+  }
+
+  const hotel_cards = hotels.map(hotel=>
+    <Card variant="outlined" sx={{maxWidth: 300}}>
+        <CardActionArea>
+          <CardMedia component="img" height="150" image={require("./cat1.jpg")} alt="fat cat">
+          </CardMedia>
+        </CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {hotel.name}
+          </Typography>
+          <Typography variant="body2">
+            Very nice!
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Chip label="Non-veg"/>
+          <Chip label="Arabic"/>
+          <Chip label="Halal"/>
+        </CardActions>
+        <CardActions>
+          <IconButton onClick={()=>shareClick(hotel.id)} size="small" color="primary">
+            <ShareIcon/>
+          </IconButton>
+          <Button disabled sx={{flexGrow:1}}></Button>
+          <Button onClick={()=>bookClick(hotel.id)} size="small" color="primary">
+            Book
+          </Button>
+        </CardActions>
+    </Card>
+  );
+
   return (
     /*main start*/
     <div class="body">
@@ -29,92 +78,7 @@ function App() {
       </div>
 
       <div class="content-centered">
-        <Card variant="outlined" sx={{maxWidth: 300}}>
-          <CardActionArea>
-            <CardMedia component="img" height="150" image={require("./cat1.jpg")} alt="fat cat">
-            </CardMedia>
-          </CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Arabian Palace
-            </Typography>
-            <Typography variant="body2">
-              Very nice!
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Chip label="Non-veg" icon={<GrassIcon/>}/>
-            <Chip label="Arabic"/>
-            <Chip label="Halal"/>
-          </CardActions>
-          <CardActions>
-            <IconButton size="small" color="primary">
-              <ShareIcon/>
-            </IconButton>
-            <Button disabled sx={{flexGrow:1}}></Button>
-            <Button size="small" color="primary">
-              Book
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card variant="outlined" sx={{maxWidth: 300}}>
-          <CardActionArea>
-            <CardMedia component="img" height="150" image={require("./cat1.jpg")} alt="fat cat">
-            </CardMedia>
-          </CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Farha
-            </Typography>
-            <Typography variant="body2">
-              Very nice!
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Chip label="Non-veg" icon={<GrassIcon/>}/>
-            <Chip label="Arabic"/>
-            <Chip label="Halal"/>
-          </CardActions>
-          <CardActions>
-            <IconButton size="small" color="primary">
-              <ShareIcon/>
-            </IconButton>
-            <Button disabled sx={{flexGrow:1}}></Button>
-            <Button size="small" color="primary">
-              Book
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card variant="outlined" sx={{maxWidth: 300}}>
-          <CardActionArea>
-            <CardMedia component="img" height="150" image={require("./cat1.jpg")} alt="fat cat">
-            </CardMedia>
-          </CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              MaxFun
-            </Typography>
-            <Typography variant="body2">
-              Very nice!
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Chip label="Non-veg" icon={<GrassIcon/>}/>
-            <Chip label="Arabic"/>
-            <Chip label="Halal"/>
-          </CardActions>
-          <CardActions>
-            <IconButton size="small" color="primary">
-              <ShareIcon/>
-            </IconButton>
-            <Button disabled sx={{flexGrow:1}}></Button>
-            <Button size="small" color="primary">
-              Book
-            </Button>
-          </CardActions>
-        </Card>
+        {hotel_cards}
       </div>
     </div>
   );
