@@ -25,7 +25,7 @@ function App() {
     <div class="body">
       <div class="header">
         <h1 class="text-logo">DineOut</h1>
-        <button id="button-load-db">LoadDB</button>
+        {/* <button id="button-load-db">LoadDB</button> */}
       </div>
 
       <div class="content-centered">
@@ -37,6 +37,64 @@ function App() {
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               Arabian Palace
+            </Typography>
+            <Typography variant="body2">
+              Very nice!
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Chip label="Non-veg" icon={<GrassIcon/>}/>
+            <Chip label="Arabic"/>
+            <Chip label="Halal"/>
+          </CardActions>
+          <CardActions>
+            <IconButton size="small" color="primary">
+              <ShareIcon/>
+            </IconButton>
+            <Button disabled sx={{flexGrow:1}}></Button>
+            <Button size="small" color="primary">
+              Book
+            </Button>
+          </CardActions>
+        </Card>
+
+        <Card variant="outlined" sx={{maxWidth: 300}}>
+          <CardActionArea>
+            <CardMedia component="img" height="150" image={require("./cat1.jpg")} alt="fat cat">
+            </CardMedia>
+          </CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Farha
+            </Typography>
+            <Typography variant="body2">
+              Very nice!
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Chip label="Non-veg" icon={<GrassIcon/>}/>
+            <Chip label="Arabic"/>
+            <Chip label="Halal"/>
+          </CardActions>
+          <CardActions>
+            <IconButton size="small" color="primary">
+              <ShareIcon/>
+            </IconButton>
+            <Button disabled sx={{flexGrow:1}}></Button>
+            <Button size="small" color="primary">
+              Book
+            </Button>
+          </CardActions>
+        </Card>
+
+        <Card variant="outlined" sx={{maxWidth: 300}}>
+          <CardActionArea>
+            <CardMedia component="img" height="150" image={require("./cat1.jpg")} alt="fat cat">
+            </CardMedia>
+          </CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              MaxFun
             </Typography>
             <Typography variant="body2">
               Very nice!
