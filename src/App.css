@@ -1,5 +1,31 @@
+.header{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 3vw;
+
+  background-color: rgba(125, 125, 125, 0.54);
+}
+
+.header-content-right{
+  margin-left: auto;
+  padding: 10px;
+}
+
+.body{
+  background-color: black;
+  height: 100vh;
+}
+
+.body-content{
+  padding: 20px;
+}
+
 .text-logo{
-  margin-left: 20px;
+  font-size:2vw;
+  margin-left: 10px;
+  margin-top: 0px;
+  text-align:center;
 }
 
 .content-centered{
