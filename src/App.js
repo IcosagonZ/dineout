@@ -10,6 +10,8 @@ import Button from "@mui/material/Button";
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
+import Grid from '@mui/material/Grid';
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActionArea from '@mui/material/CardActionArea';
@@ -75,27 +77,42 @@ function App()
 
     
   }
+  /*
+  0 rid
+  1 name
+  2 cuisine
+  3 veg/nonveg
+  4 halal
+  5 price_start
+  6 seats_available
+  7 seats_total
+  8 description
+  9 rating
+  10 lat
+  11 long
+  12 address
+  */
 
   const hotel_cards = hotelsList.map(hotel=>
-    <Card key={hotel.id} variant="outlined" sx={{maxWidth: 300}}>
+    <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }} key={hotel.id} variant="outlined" sx={{maxWidth: 300}}>
         <CardActionArea>
           <CardMedia component="img" height="150" image={require("./cat1.jpg")} alt="fat cat">
           </CardMedia>
         </CardActionArea>
-        <CardContent>
+        <CardContent sx={{ flexGrow: 1 }}>
           <Typography gutterBottom variant="h5" component="div">
             {hotel[1]}
           </Typography>
           <Typography variant="body2">
-            Very nice!
+            {hotel[3]} {hotel[2]} restaurant.
           </Typography>
         </CardContent>
         <CardActions>
-          <Chip label="Non-veg"/>
-          <Chip label="Arabic"/>
-          <Chip label="Halal"/>
+          <Chip label={hotel[3]}/>
+          <Chip label={hotel[2]}/>
+          <Chip label={hotel[4]}/>
         </CardActions>
-        <CardActions>
+        <CardActions sx={{flexGrow: 1}}>
           <IconButton onClick={()=>shareClick(hotel[0])} size="small" color="primary">
             <ShareIcon/>
           </IconButton>
@@ -120,7 +137,9 @@ function App()
 
       <div class="body-content">
         <div class="content-centered">
-          {hotel_cards}
+          <Grid container spacing={2} sx={{justifyContent: "center", alignItems: "center",}}>
+            {hotel_cards}
+          </Grid>
         </div>
       </div>
     </div>
